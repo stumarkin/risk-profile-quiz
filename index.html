@@ -28,7 +28,8 @@
     }
 
     .question p {
-      font-weight: 600;
+      font-weight: 500;
+      font-size: 15px;
       margin: 25px 0 5px;
     }
 
@@ -73,13 +74,13 @@
       }
       if (answersCount > 4) {
         if (total < 8) {
-          summary = "Похоже, вы консервативный инвестор";
+          summary = "Похоже, вы <b>консервативный</b> инвестор.<br>Вам подходят безопасные инвестиции, например облигации федерального займа.";
         } else if (total < 13) {
-          summary = "Похоже, вы умеренный инвестор";
+          summary = "Похоже, вы <b>умеренный</b> инвестор.<br>Вам следует разделить ваши инвестиции между рисковыми и безрисковыми инструментами - облигациями, ETF и акциями. ";
         } else {
-          summary = "Похоже, вы агрессивный инвестор";
+          summary = "Похоже, вы <b>агрессивный</b> инвестор.<br>Вы готовы принимать на себя риск. Для данного типа инвесторов харакетрны инвестиции в акции.";
         }
-        document.getElementsByClassName("summary")[0].innerText = summary;
+        document.getElementsByClassName("summary")[0].innerHTML = summary;
         document.getElementsByClassName("summary")[0].classList.add("got");
       }
     }
