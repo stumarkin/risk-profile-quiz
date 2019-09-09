@@ -1,0 +1,168 @@
+<html>
+
+<head>
+  <meta charset="utf-8" data-n-head="true">
+  <style>
+    .question,
+    .summary {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #424242;
+    }
+
+    .question label {
+      display: inline-block;
+      cursor: pointer;
+      background-color: #f5f5f5;
+      padding: 15px;
+      margin: 0 3px 3px 0;
+      border-radius: 4px;
+    }
+
+    .question label.answerChecked {
+      background-color: #c5edd2 !important;
+    }
+
+    .question label input {
+      display: none;
+    }
+
+    .question p {
+      font-weight: 600;
+      margin: 25px 0 5px;
+    }
+
+    .summary {
+      background-color: #ffffe0;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .got {
+      background-color: #ffec8b;
+    }
+
+    .quizSubmit {
+      width: 90%;
+      padding: 10px;
+      margin: 10px auto;
+    }
+  </style>
+
+  <script>
+    var answers = document.getElementsByClassName("answer");
+    for (var i = 0; i < answers.length; i++) {
+      answers[i].addEventListener("click", submitQuiz());
+    }
+
+    function submitQuiz() {
+      var total = 0;
+      var answersCount = 0;
+      var summary = "";
+      var answers = document.getElementsByClassName("answer");
+      //var answerinput = null;
+      for (var i = 0; i < answers.length; i++) {
+        answerinput = answers[i].getElementsByTagName("input")[0];
+        if (answerinput.checked) {
+          answersCount += 1;
+          total += Number(answerinput.value);
+          answers[i].classList.add("answerChecked");
+        } else {
+          answers[i].classList.remove("answerChecked");
+        }
+      }
+      if (answersCount > 4) {
+        if (total < 8) {
+          summary = "Похоже, вы консервативный инвестор";
+        } else if (total < 13) {
+          summary = "Похоже, вы умеренный инвестор";
+        } else {
+          summary = "Похоже, вы агрессивный инвестор";
+        }
+        document.getElementsByClassName("summary")[0].innerText = summary;
+        document.getElementsByClassName("summary")[0].classList.add("got");
+      }
+    }
+  </script>
+
+  <head>
+
+    <body>
+      <div class="quiz" onClick="submitQuiz()">
+
+        <div class="question">
+          <p>Какая фраза лучше всего описывает мои цели?</p>
+
+          <label class="answer"><input type="radio" name="q1" value="1">
+  Я хочу, чтобы мои инвестиции были в безопасности. Главное — не потерять</label>
+
+          <label class="answer"><input type="radio" name="q1" value="2">
+  Я хочу, чтобы мои инвестиции приносили мне регулярный доход</label>
+
+          <label class="answer"><input type="radio" name="q1" value="3">
+  Я хочу, чтобы мои инвестиции росли, получать текущий доход с них не обязательно</label>
+
+        </div>
+
+        <div class="question">
+          <p>На какой срок я инвестирую деньги?</p>
+
+          <label class="answer"><input type="radio" name="q2" value="1">
+  Деньги могут понадобиться мне в любой момент</label>
+
+          <label class="answer"><input type="radio" name="q2" value="2">
+  2-5 лет</label>
+
+          <label class="answer"><input type="radio" name="q2" value="3">
+  Более 5 лет</label>
+
+        </div>
+
+        <div class="question">
+          <p>Какая средняя доходность в процентах годовых меня устроит?</p>
+
+          <label class="answer"><input type="radio" name="q3" value="1">
+  5% это хорошая доходность</label>
+
+          <label class="answer"><input type="radio" name="q3" value="2">
+  10-15% это хорошая доходность</label>
+
+          <label class="answer"><input type="radio" name="q3" value="3">
+  Хорошая инвестиция должна приносить больше 20-30% годовых</label>
+
+        </div>
+
+        <div class="question">
+          <p>Какая из этих фраз точнее описывает моё отношение к риску?</p>
+
+          <label class="answer"><input type="radio" name="q4" value="1">
+  Я считаю, что инвестиция никогда не должна терять в цене</label>
+
+          <label class="answer"><input type="radio" name="q4" value="2">
+  Если портфель теряет более 20%, значит, что-то не так со стратегией</label>
+
+          <label class="answer"><input type="radio" name="q4" value="3">
+  Я могу потерпеть просадку даже в 25-30%. За падением следует взлёт</label>
+
+        </div>
+
+        <div class="question">
+          <p>Сколько времени я могу уделять управлению инвестициями?</p>
+
+          <label class="answer"><input type="radio" name="q5" value="1">
+  Я бы не хотел тратить время на изучение инвестиций</label>
+
+          <label class="answer"><input type="radio" name="q5" value="2">
+  Я готов заниматься инвестициями 1-2 раза в месяц</label>
+
+          <label class="answer"><input type="radio" name="q5" value="3">
+  Я разбираюсь в рынке и готов заниматься инвестициями постоянно</label>
+
+        </div>
+
+        <div class="summary">Пожалуйста, выберете ответ в каждом вопросе, чтобы узнать ваш риск-профиль.</div>
+
+      </div>
+    </body>
+
+</html>
