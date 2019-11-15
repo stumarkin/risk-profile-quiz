@@ -76,11 +76,11 @@
       }
       if (answersCount > 4) {
         if (total < 8) {
-          summary = "Похоже, вы <b>консервативный</b> инвестор.<br><br>Вам подходят безопасные инвестиции, например <a href="https://place.moex.com/products?medium=false&aggressive=false">облигации федерального займа.</a>";
+          summary = 'Похоже, вы <b>консервативный</b> инвестор.<br><br>Вам подходят безопасные инвестиции, например <a href="https://place.moex.com/products?medium=false&aggressive=false">облигации федерального займа.</a>';
         } else if (total < 13) {
-          summary = "Похоже, вы <b>умеренный</b> инвестор.<br><br>Вам следует разделить ваши инвестиции между рисковыми и безрисковыми инструментами - <a href="https://place.moex.com/products/bonds">облигациями</a>, <a href="https://place.moex.com/products/etfs">ETF</a> и <a href="https://place.moex.com/products/shares">акциями</a>. ";
+          summary = 'Похоже, вы <b>умеренный</b> инвестор.<br><br>Вам следует разделить ваши инвестиции между рисковыми и безрисковыми инструментами - <a href="https://place.moex.com/products/bonds">облигациями</a>, <a href="https://place.moex.com/products/etfs">ETF</a> и <a href="https://place.moex.com/products/shares">акциями</a>. ';
         } else {
-          summary = "Похоже, вы <b>агрессивный</b> инвестор.<br><br>Вы готовы принимать на себя риск. Для данного типа инвесторов харакетрны инвестиции в <a href="https://place.moex.com/products/shares">акции</a>.";
+          summary = 'Похоже, вы <b>агрессивный</b> инвестор.<br><br>Вы готовы принимать на себя риск. Для данного типа инвесторов харакетрны инвестиции в <a href="https://place.moex.com/products/shares">акции</a>.';
         }
         document.getElementsByClassName("summary")[0].innerHTML = summary;
         document.getElementsByClassName("summary")[0].classList.add("got");
